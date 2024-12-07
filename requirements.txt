@@ -2,7 +2,6 @@ streamlit==1.40.2
 streamlit-mermaid==0.2.0
 sounddevice==0.5.1
 soundfile==0.12.1
-whisper==1.1.10
 openai==1.57.0
 pandas==2.2.3
 numpy==2.0.2
