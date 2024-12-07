@@ -5,7 +5,7 @@ A Streamlit application that records meetings, transcribes them, and provides AI
 ## Features
 - Real-time audio recording
 - Speech-to-text transcription using Whisper
-- AI-powered meeting analysis using GPT-4
+- AI-powered meeting analysis using GPT-4o
 - Visual meeting flow diagrams using Mermaid
 - Action item tracking with assignments
 - Meeting playback capabilities

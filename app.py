@@ -29,7 +29,7 @@ if not os.path.exists("recordings"):
 # Initialize OpenAI client
 @st.cache_resource
 def get_openai_client():
-    api_key = st.secrets["OPENAI_API_KEY"]#os.getenv("OPENAI_API_KEY")
+    api_key = st.secrets["OPENAI_API_KEY"]
     if not api_key:
         st.error("Please set the OPENAI_API_KEY in your secrets or environment variables")
         st.stop()

@@ -19,4 +19,4 @@ AUDIO_CHANNELS = 1
 MAX_RECORDING_HOURS = 1
 
 # OpenAI configuration
-GPT_MODEL = "gpt-4" 
+GPT_MODEL = "gpt-4o" 
