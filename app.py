@@ -2,7 +2,6 @@ import streamlit as st
 from streamlit_mermaid import st_mermaid
 import sounddevice as sd
 import soundfile as sf
-import whisper
 from datetime import datetime
 import os
 from openai import OpenAI
@@ -38,11 +37,11 @@ def get_openai_client():
 client = get_openai_client()
 
 # Initialize Whisper model
-@st.cache_resource
-def load_whisper_model():
-    return whisper.load_model("base")
+# @st.cache_resource
+# def load_whisper_model():
+#     return whisper.load_model("base")
 
-model = load_whisper_model()
+# model = load_whisper_model()
 
 def generate_meeting_summary(transcript):
     """Generate comprehensive meeting summary and detailed mermaid diagram"""
@@ -180,9 +179,11 @@ with col2:
             
             # Process the recording
             with st.spinner("Transcribing audio..."):
-                result = model.transcribe(audio_file)
-                transcript = result["text"]
-                st.session_state['last_transcription'] = transcript
+                #result = model.transcribe(audio_file)
+                with open(audio_file, "rb") as audio_bits:
+                    result = client.audio.transcriptions.create(model="whisper-1", file=audio_bits, response_format="text")
+                    transcript = result["text"]
+                    st.session_state['last_transcription'] = transcript
             
             with st.spinner("Analyzing meeting content..."):
                 try:
